@@ -109,7 +109,7 @@
     <div>Speed: <span id="speed">100</span>ms</div>
   </div>
   <div class="game-box">
-    <canvas id="gameCanvas"></canvas>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
   </div>
   <div class="btn-container">
     <button onclick="submitScore()">Submit Score</button>
@@ -375,9 +375,6 @@ canvas.addEventListener('touchmove', e => e.preventDefault(), { passive: false }
       else if (e.key === 'ArrowLeft' && direction !== 'right') nextDirection = 'left';
       else if (e.key === 'ArrowRight' && direction !== 'left') nextDirection = 'right';
     });
-
-    canvas.width = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
 	  
     spawnFood();
     draw();
