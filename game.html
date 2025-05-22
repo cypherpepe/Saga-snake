@@ -42,6 +42,15 @@
     canvas {
       display: block;
       background-color: #000;
+      width: 90vmin;
+      height: 90vmin;
+      max-width: 400px;
+      max-height: 400px;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .stats { flex-direction: column; gap: 12px; }
+      button { font-size: 18px; padding: 14px 20px; }
     }
     .btn-container {
       margin-top: 20px;
@@ -100,7 +109,7 @@
     <div>Speed: <span id="speed">100</span>ms</div>
   </div>
   <div class="game-box">
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <canvas id="gameCanvas"></canvas>
   </div>
   <div class="btn-container">
     <button onclick="submitScore()">Submit Score</button>
@@ -329,6 +338,35 @@
       }
       draw();
     }
+let touchStartX = 0, touchStartY = 0;
+
+canvas.addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}, { passive: false });
+
+canvas.addEventListener('touchmove', e => {
+  if (!touchStartX || !touchStartY) return;
+
+  const dx = e.touches[0].clientX - touchStartX;
+  const dy = e.touches[0].clientY - touchStartY;
+
+  if (Math.abs(dx) > Math.abs(dy)) {
+    if (dx > 0 && direction !== 'left') nextDirection = 'right';
+    else if (dx < 0 && direction !== 'right') nextDirection = 'left';
+  } else {
+    if (dy > 0 && direction !== 'up') nextDirection = 'down';
+    else if (dy < 0 && direction !== 'down') nextDirection = 'up';
+  }
+
+  touchStartX = 0;
+  touchStartY = 0;
+}, { passive: false });
+
+// отключение скролла
+canvas.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+canvas.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
+
 
     document.addEventListener('keydown', e => {
       e.preventDefault();
@@ -338,6 +376,9 @@
       else if (e.key === 'ArrowRight' && direction !== 'left') nextDirection = 'right';
     });
 
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+	  
     spawnFood();
     draw();
     gameInterval = setInterval(gameLoop, speed);
