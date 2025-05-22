@@ -132,34 +132,69 @@
     let highScore = localStorage.getItem('snakeHighScore') || 0;
     highScoreEl.textContent = highScore;
 
-    const contractAddress = "0x1f5360d5ca1bf5112745bc06d0166d9fe41885b9";
+    const contractAddress = "0x9ab0ca11b9a05ccc498848d8360a99faece2dec8";
     const contractABI = [
-      {
-        "inputs": [{ "internalType": "uint256", "name": "_score", "type": "uint256" }],
-        "name": "submitScore",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "getTopPlayers",
-        "outputs": [
-          {
-            "components": [
-              { "internalType": "address", "name": "addr", "type": "address" },
-              { "internalType": "uint256", "name": "score", "type": "uint256" }
-            ],
-            "internalType": "struct Leaderboard.Player[]",
-            "name": "",
-            "type": "tuple[]"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      }
-    ];
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "player",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "score",
+				"type": "uint256"
+			}
+		],
+		"name": "ScoreSubmitted",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_score",
+				"type": "uint256"
+			}
+		],
+		"name": "submitScore",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getTopPlayers",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "score",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SnakeBoard.Entry[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
 
+
+    
     function openLeaderboard() {
       document.getElementById('overlay').style.display = 'block';
       document.getElementById('leaderboardModal').style.display = 'block';
