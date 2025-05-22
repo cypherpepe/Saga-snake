@@ -224,18 +224,25 @@
       }
     }
 
-    async function submitScore() {
-      if (typeof window.ethereum === 'undefined') return alert("Wallet not found");
-      try {
-        const web3 = new Web3(window.ethereum);
-        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-        const contract = new web3.eth.Contract(contractABI, contractAddress);
-        await contract.methods.submitScore(score).send({ from: accounts[0] });
-        alert('Score submitted!');
-      } catch (err) {
-        alert('Failed to submit score');
-      }
+     async function submitScore() {
+  	if (typeof window.ethereum === 'undefined') return alert("Wallet not found");
+	try {
+    	  const web3 = new Web3(window.ethereum);
+    	  const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    	  const contract = new web3.eth.Contract(contractABI, contractAddress);
+    
+    	  const highScore = parseInt(localStorage.getItem('snakeHighScore') || "0");
+    	if (highScore <= 0) {
+      return alert("Score must be greater than 0");
     }
+
+    await contract.methods.submitScore(highScore).send({ from: accounts[0] });
+    alert('High Score submitted!');
+  } catch (err) {
+    console.error(err);
+    alert('Failed to submit score: ' + (err?.message || err));
+  }
+}
 
     function drawGrid() {
       ctx.strokeStyle = '#111';
