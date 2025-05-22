@@ -6,7 +6,7 @@
   },
   "frame": {
     "version": "1",
-    "name": "Example Frame",
+    "name": "Saga Snake",
     "iconUrl": "https://saga-snake.vercel.app/icon.png",
     "homeUrl": "https://saga-snake.vercel.app",
     "imageUrl": "https://saga-snake.vercel.app/image.png",
