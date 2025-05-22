@@ -1,0 +1,18 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjEzMDIxLCJ0eXBlIjoiY3VzdG9keSIsImtleSI6IjB4QjRhMEQwOTMzODY0RUI2YzcxMjFENmE2ZEFlYzFhQTdCYTVkMDg5RiJ9",
+    "payload": "eyJkb21haW4iOiJzYWdhLXNuYWtlLnZlcmNlbC5hcHAifQ",
+    "signature": "MHhkOWVlNmE5Nzg5MzM2ZWI5N2IyOTAyNGQzMTBkNWJmN2Y2ZjJhMjJiZmM4YzFlOWJkMDFjNTc2MWQzZGYzZmRjMTYzMjIyYmM3ZTZkNTI5YTNiYjIyNmZjZGYzY2FlODhhMDg0OWNkYmUwNTViZDRjYTRjM2M3YjdhOGIxNGI2YjFj"
+  },
+  "frame": {
+    "version": "1",
+    "name": "Example Frame",
+    "iconUrl": "https://saga-snake.vercel.app/icon.png",
+    "homeUrl": "https://saga-snake.vercel.app",
+    "imageUrl": "https://saga-snake.vercel.app/image.png",
+    "buttonTitle": "Check this out",
+    "splashImageUrl": "https://saga-snake.vercel.app/splash.png",
+    "splashBackgroundColor": "#eeccff",
+    "webhookUrl": "https://saga-snake.vercel.app/api/webhook"
+  }
+}
