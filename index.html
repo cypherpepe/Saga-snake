@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yaga Snake</title>
+
+  <!-- Farcaster Frame Meta -->
+  <meta property="fc:frame" content='{
+    "version": "next",
+    "imageUrl": "https://pepa-green.vercel.app/icon.png",
+    "button": {
+      "title": "Play",
+      "action": {
+        "type": "launch_frame",
+        "name": "Yaga Snake",
+        "url": "https://pepa-green.vercel.app/game.html",
+        "splashImageUrl": "https://pepa-green.vercel.app/icon.png",
+        "splashBackgroundColor": "#1e0127"
+      }
+    }
+  }' />
+
+  <!-- Open Graph Meta -->
+  <meta property="og:image" content="https://pepa-green.vercel.app/icon.png" />
+  <meta property="og:title" content="Yaga Snake — MiniGame on Monad" />
+  <meta property="og:description" content="Slither to score. Speed up. Claim MON. Play now!" />
+
+  <style>
+    body {
+      margin: 0;
+      background: #1e0127;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #b47aff;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 480px;
+      margin: 0 16px 2rem;
+      color: #dcdcdc;
+    }
+
+    .button {
+      padding: 14px 30px;
+      font-size: 1.2rem;
+      background-color: #e97fff;
+      color: #1e0127;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #ffaaff;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/@farcaster/frame-sdk/dist/index.min.js"></script>
+  <script>
+    frame.sdk.actions.ready();
+  </script>
+
+  <h1>🐍 Yaga Snake</h1>
+  <p>
+    Enter the pixel pit. Control your snake, eat to grow and speed up,
+    and claim MON rewards on the Monad Testnet.
+  </p>
+  <a class="button" href="game.html">Start Game</a>
+</body>
+</html>
