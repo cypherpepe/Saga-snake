@@ -14,5 +14,8 @@
     "splashImageUrl": "https://saga-snake.vercel.app/splash.png",
     "splashBackgroundColor": "#eeccff",
     "webhookUrl": "https://saga-snake.vercel.app/api/webhook"
+  },
+  "baseBuilder": {
+    "allowedAddresses": ["0xc28567f16DD3d3536B6f791FFF4355e0b03F2a9B"]
   }
 }
